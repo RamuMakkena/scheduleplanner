@@ -109,3 +109,10 @@ saveTasks = function(taskText, hour){
     tasks.push({"hour": hour, taskText: taskText});
     localStorage.setItem("schedulerTasks",JSON.stringify(tasks));
 }
+
+setTimeout(function(){
+    var currentHour = moment().hour();
+    if(currentHour ==0){
+    localStorage.removeItem("schedulerTasks");
+    }
+},1000*60*60);
